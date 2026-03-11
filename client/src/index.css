@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+@theme {
+  --color-army-dark: #2a3320;
+  --color-army: #3d4a2a;
+  --color-army-light: #4a5a35;
+  --color-army-lighter: #5a6b45;
+  --color-khaki: #c4a35a;
+  --color-gold: #d4a847;
+  --color-cream: #e8e0d0;
+  --color-danger: #8b3a3a;
+  --color-danger-light: #a84444;
+  --color-player-red: #c94c4c;
+  --color-player-blue: #4c7cc9;
+  --color-player-yellow: #c9b84c;
+  --color-player-green: #4cc96a;
+
+  --font-stencil: "Black Ops One", cursive;
+  --font-body: "Inter", sans-serif;
+}
+
+@font-face {
+  font-family: "Black Ops One";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/blackopsone/v20/qWcsB6-ypo7xBdr6Xshe96H3WDzRtjkho4M.woff2") format("woff2");
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-army-dark);
+  color: var(--color-cream);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-army-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-army-light); border-radius: 3px; }
+
+@keyframes dice-roll {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.2); }
+  50% { transform: rotate(180deg) scale(0.9); }
+  75% { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(212, 168, 71, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(212, 168, 71, 0.8); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-dice-roll { animation: dice-roll 1.5s ease-out; }
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
+.animate-slide-up { animation: slide-up 0.3s ease-out; }
+.animate-fade-in { animation: fade-in 0.3s ease-out; }
+
+/* ─── New Animations ─── */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-6px) rotate(-1deg); }
+  20% { transform: translateX(6px) rotate(1deg); }
+  30% { transform: translateX(-4px) rotate(-0.5deg); }
+  40% { transform: translateX(4px) rotate(0.5deg); }
+  50% { transform: translateX(-2px); }
+  60% { transform: translateX(2px); }
+  70% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.08); opacity: 1; }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(212, 168, 71, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(212, 168, 71, 0.9), 0 0 48px rgba(212, 168, 71, 0.3); }
+}
+
+@keyframes coin-fly {
+  0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+  40% { transform: scale(1.2) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes card-deal {
+  0% { transform: translateX(80px) rotate(8deg); opacity: 0; }
+  60% { transform: translateX(-4px) rotate(-1deg); opacity: 1; }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+@keyframes explosion {
+  0% { transform: scale(0.2); opacity: 1; }
+  40% { transform: scale(1.8); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  20% { opacity: 1; background: rgba(255, 255, 255, 0.8); }
+  100% { opacity: 0; background: transparent; }
+}
+
+@keyframes march {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-3px); }
+  75% { transform: translateY(1px); }
+}
+
+@keyframes victory-glow {
+  0% { box-shadow: 0 0 20px rgba(212, 168, 71, 0.5); text-shadow: 0 0 10px rgba(212, 168, 71, 0.5); }
+  33% { box-shadow: 0 0 30px rgba(201, 184, 76, 0.7); text-shadow: 0 0 20px rgba(201, 184, 76, 0.7); }
+  66% { box-shadow: 0 0 30px rgba(196, 163, 90, 0.7); text-shadow: 0 0 20px rgba(196, 163, 90, 0.7); }
+  100% { box-shadow: 0 0 20px rgba(212, 168, 71, 0.5); text-shadow: 0 0 10px rgba(212, 168, 71, 0.5); }
+}
+
+/* ─── Dice Tumble 3D ─── */
+@keyframes dice-tumble {
+  0% { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+  15% { transform: rotateX(120deg) rotateY(60deg) scale(1.3); }
+  30% { transform: rotateX(240deg) rotateY(180deg) scale(0.9); }
+  45% { transform: rotateX(360deg) rotateY(300deg) scale(1.2); }
+  60% { transform: rotateX(450deg) rotateY(400deg) scale(1.1); }
+  75% { transform: rotateX(600deg) rotateY(500deg) scale(0.95); }
+  90% { transform: rotateX(700deg) rotateY(680deg) scale(1.05); }
+  100% { transform: rotateX(720deg) rotateY(720deg) scale(1); }
+}
+
+/* ─── Piece Hop (commander movement) ─── */
+@keyframes piece-hop {
+  0% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(-18px) scale(1.15); }
+  40% { transform: translateY(0) scale(0.95); }
+  55% { transform: translateY(-8px) scale(1.08); }
+  70% { transform: translateY(0) scale(0.97); }
+  85% { transform: translateY(-3px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ─── Territory Capture Ripple ─── */
+@keyframes capture-ripple {
+  0% { box-shadow: 0 0 0 0 rgba(212, 168, 71, 0.7); transform: scale(0.95); }
+  50% { box-shadow: 0 0 0 15px rgba(212, 168, 71, 0); transform: scale(1.02); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 168, 71, 0); transform: scale(1); }
+}
+
+/* ─── Coin Scatter (spend/earn) ─── */
+@keyframes coin-scatter {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  50% { opacity: 0.8; transform: translateY(-30px) scale(1.3); }
+  100% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+}
+
+/* ─── Button Ripple ─── */
+@keyframes btn-ripple {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 168, 71, 0.5); }
+  50% { transform: scale(0.97); box-shadow: 0 0 0 8px rgba(212, 168, 71, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 168, 71, 0); }
+}
+
+/* ─── Number Pop (stat changes) ─── */
+@keyframes number-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ─── Slide Down (log entries) ─── */
+@keyframes slide-down {
+  from { transform: translateY(-10px); opacity: 0; max-height: 0; }
+  to { transform: translateY(0); opacity: 1; max-height: 30px; }
+}
+
+/* ─── Phase Banner Sweep ─── */
+@keyframes phase-sweep {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  50% { clip-path: inset(0 0 0 0); opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+/* ─── Danger Pulse (attack option) ─── */
+@keyframes danger-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(139, 58, 58, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(168, 68, 68, 0.8), 0 0 32px rgba(139, 58, 58, 0.3); }
+}
+
+/* ─── Stamp In (big reveal text) ─── */
+@keyframes stamp-in {
+  0% { transform: scale(3) rotate(-12deg); opacity: 0; }
+  60% { transform: scale(0.9) rotate(2deg); opacity: 1; }
+  80% { transform: scale(1.05) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ─── Radar Ping (tile highlight) ─── */
+@keyframes radar-ping {
+  0% { stroke-width: 2; opacity: 0.8; r: 12; }
+  100% { stroke-width: 0; opacity: 0; r: 30; }
+}
+
+/* ─── Wiggle (waiting indicator) ─── */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+/* ─── Typewriter dots ─── */
+@keyframes typing-dots {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+}
+
+.animate-shake { animation: shake 0.5s ease-in-out; }
+.animate-bounce-in { animation: bounce-in 0.4s ease-out; }
+.animate-glow-pulse { animation: glow-pulse 1.5s infinite; }
+.animate-coin-fly { animation: coin-fly 0.5s ease-out; }
+.animate-card-deal { animation: card-deal 0.35s ease-out; }
+.animate-explosion { animation: explosion 0.6s ease-out forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-slide-in-left { animation: slide-in-left 0.3s ease-out; }
+.animate-slide-in-right { animation: slide-in-right 0.3s ease-out; }
+.animate-flash { animation: flash 0.4s ease-out; }
+.animate-march { animation: march 0.3s ease-in-out; }
+.animate-victory-glow { animation: victory-glow 2s infinite; }
+.animate-dice-tumble { animation: dice-tumble 1.2s cubic-bezier(0.2, 0.8, 0.3, 1); }
+.animate-piece-hop { animation: piece-hop 0.6s ease-out; }
+.animate-capture-ripple { animation: capture-ripple 0.8s ease-out; }
+.animate-coin-scatter { animation: coin-scatter 0.7s ease-out forwards; }
+.animate-btn-ripple { animation: btn-ripple 0.4s ease-out; }
+.animate-number-pop { animation: number-pop 0.35s ease-out; }
+.animate-slide-down { animation: slide-down 0.25s ease-out; }
+.animate-phase-sweep { animation: phase-sweep 0.5s ease-out; }
+.animate-danger-pulse { animation: danger-pulse 1.2s infinite; }
+.animate-stamp-in { animation: stamp-in 0.5s ease-out; }
+.animate-wiggle { animation: wiggle 0.5s ease-in-out infinite; }
+
+/* Smooth piece transitions for SVG movement */
+.piece-transition { transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+/* Hover scale for interactive buttons */
+.hover-pop { transition: transform 0.15s ease; }
+.hover-pop:hover { transform: scale(1.05); }
+.hover-pop:active { transform: scale(0.95); }
